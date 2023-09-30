@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:community_material_icon/community_material_icon.dart';
-class  SignScreen extends StatelessWidget {
+class  SignScreen extends StatefulWidget {
    SignScreen({super.key});
+
+  @override
+  State<SignScreen> createState() => _SignScreenState();
+}
+
+class _SignScreenState extends State<SignScreen> {
 TextEditingController emailController=TextEditingController();
+
 TextEditingController passwordController=TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -102,7 +110,8 @@ TextEditingController passwordController=TextEditingController();
                   ),
                 Text('I Agree With Private Policy ',style: TextStyle(color: Colors.black),)],
               ),
-              ElevatedButton(onPressed: (){}, child: Text('Sign Up',style: TextStyle(color: Colors.white),),style:ElevatedButton.styleFrom(
+              ElevatedButton(onPressed: (){
+              }, child: Text('Sign Up',style: TextStyle(color: Colors.white),),style:ElevatedButton.styleFrom(
                   backgroundColor: Colors.blueAccent,
                   fixedSize: Size(300, 50),
                   shape: BeveledRectangleBorder(side: BorderSide(style: BorderStyle.solid,color: Colors.blueAccent)) )
@@ -118,7 +127,8 @@ TextEditingController passwordController=TextEditingController();
                     ),
                   ),
                   SizedBox(width: 10,),
-                  TextButton(onPressed: (){}, child: Text('Login',
+                  TextButton(onPressed: (){
+                  }, child: Text('Login',
                       style:TextStyle(
                           fontSize: 17,
                           color: Colors.blueAccent)

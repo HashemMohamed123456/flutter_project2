@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:community_material_icon/community_material_icon.dart';
-class WelcomeAccount extends StatelessWidget {
+import 'package:untitled/screens/Login.dart';
+import 'package:untitled/screens/sign.dart';
+class WelcomeAccount extends StatefulWidget {
   const WelcomeAccount({super.key});
 
+  @override
+  State<WelcomeAccount> createState() => _WelcomeAccountState();
+}
+
+class _WelcomeAccountState extends State<WelcomeAccount> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -57,7 +64,11 @@ class WelcomeAccount extends StatelessWidget {
                   color: Colors.grey)
           ),
           SizedBox(height:75),
-    ElevatedButton(onPressed: (){}, child: Text('Sign Up',style: TextStyle(color: Colors.white),),style:ElevatedButton.styleFrom(
+    ElevatedButton(onPressed: (){
+      Navigator.push(context,MaterialPageRoute(builder: (context)=>SignScreen()
+      )
+      );
+    }, child: Text('Sign Up',style: TextStyle(color: Colors.white),),style:ElevatedButton.styleFrom(
     backgroundColor: Colors.blueAccent,
     fixedSize: Size(300, 50),
     shape: BeveledRectangleBorder(side: BorderSide(style: BorderStyle.solid,color: Colors.blueAccent)) )
@@ -73,7 +84,11 @@ class WelcomeAccount extends StatelessWidget {
                 ),
               ),
             SizedBox(width: 10,),
-              TextButton(onPressed: (){}, child: Text('Login',
+              TextButton(onPressed: (){
+                Navigator.push(context,MaterialPageRoute(builder: (context)=>LoginScreen()
+                )
+                );
+              }, child: Text('Login',
                   style:TextStyle(
                       fontSize: 17,
                       color: Colors.blueAccent)

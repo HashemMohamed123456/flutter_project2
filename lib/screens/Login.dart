@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:community_material_icon/community_material_icon.dart';
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
    LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
 TextEditingController emailController=TextEditingController();
+
 TextEditingController passwordController=TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
