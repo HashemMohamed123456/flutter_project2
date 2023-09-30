@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:community_material_icon/community_material_icon.dart';
+import 'package:untitled/screens/Login.dart';
 class  SignScreen extends StatefulWidget {
    SignScreen({super.key});
 
@@ -127,7 +128,9 @@ TextEditingController passwordController=TextEditingController();
                     ),
                   ),
                   SizedBox(width: 10,),
-                  TextButton(onPressed: (){
+                  TextButton(onPressed: (){ Navigator.push(context,MaterialPageRoute(builder: (context)=>LoginScreen()
+                  )
+                  );
                   }, child: Text('Login',
                       style:TextStyle(
                           fontSize: 17,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:community_material_icon/community_material_icon.dart';
+import 'package:untitled/screens/sign.dart';
 class LoginScreen extends StatefulWidget {
    LoginScreen({super.key});
 
@@ -112,7 +113,11 @@ TextEditingController passwordController=TextEditingController();
                 Spacer(),
                 Text('Forgot Password ?',style: TextStyle(color: Colors.black))],
               ),
-              ElevatedButton(onPressed: (){}, child: Text('Login',style: TextStyle(color: Colors.white),),style:ElevatedButton.styleFrom(
+              ElevatedButton(onPressed: (){
+                Navigator.push(context,MaterialPageRoute(builder: (context)=>SignScreen()
+                )
+                );
+              }, child: Text('Login',style: TextStyle(color: Colors.white),),style:ElevatedButton.styleFrom(
                   backgroundColor: Colors.blueAccent,
                   fixedSize: Size(300, 50),
                   shape: BeveledRectangleBorder(side: BorderSide(style: BorderStyle.solid,color: Colors.blueAccent)) )
@@ -128,7 +133,11 @@ TextEditingController passwordController=TextEditingController();
                     ),
                   ),
                   SizedBox(width: 10,),
-                  TextButton(onPressed: (){}, child: Text('Sign Up',
+                  TextButton(onPressed: (){
+                    Navigator.push(context,MaterialPageRoute(builder: (context)=>SignScreen()
+                    )
+                    );
+                  }, child: Text('Sign Up',
                       style:TextStyle(
                           fontSize: 17,
                           color: Colors.blueAccent)
