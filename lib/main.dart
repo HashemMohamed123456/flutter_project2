@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:untitled/GridViewScreen.dart';
+import 'package:untitled/messangerscreen2.dart';
 import 'package:untitled/screens/Login.dart';
-import 'package:untitled/Messanger.dart';
 import 'package:untitled/Welcome.dart';
-import 'package:untitled/screens/home/Home_screen.dart';
 import 'package:untitled/screens/sign.dart';
 import 'package:untitled/pinterst_screen.dart';
-import 'package:untitled/screens/splash/Splash_screen.dart';
+
 
 
 void main() {
@@ -41,7 +39,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home:  WelcomeAccount()
+        home:  MessangerChatScreen()
       );
 
   }
