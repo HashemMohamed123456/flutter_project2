@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:community_material_icon/community_material_icon.dart';
-import 'package:untitled/screens/Login.dart';
-import 'package:untitled/screens/sign.dart';
+import 'package:untitled/view/screens/Login.dart';
+import 'package:untitled/view/screens/sign.dart';
 class WelcomeAccount extends StatefulWidget {
   const WelcomeAccount({super.key});
 

@@ -82,7 +82,7 @@ class MessangerChatScreen extends StatelessWidget {
         Expanded(
           child: ListView.separated(shrinkWrap: true,physics: NeverScrollableScrollPhysics(),itemBuilder: (context,index){
             return ConverstionWidget(chat: chats[index],);
-          }, separatorBuilder: (context, index) => SizedBox(height: 15,), itemCount: 10),
+          }, separatorBuilder: (context, index) => SizedBox(height: 15,), itemCount: chats.length),
         )],
     ),
     );

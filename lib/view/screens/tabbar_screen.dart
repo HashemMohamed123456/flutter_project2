@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/screens/archive_screen.dart';
-import 'package:untitled/screens/done_screen.dart';
-import 'package:untitled/screens/task_screen.dart';
+import 'package:untitled/view/screens/archive_screen.dart';
+import 'package:untitled/view/screens/done_screen.dart';
+import 'package:untitled/view/screens/task_screen.dart';
 class TabbarScreen extends StatelessWidget {
   const TabbarScreen({super.key});
 

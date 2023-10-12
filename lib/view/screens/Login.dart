@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:community_material_icon/community_material_icon.dart';
-import 'package:untitled/screens/Login.dart';
-class  SignScreen extends StatefulWidget {
-   SignScreen({super.key});
+import 'package:untitled/view/screens/sign.dart';
+class LoginScreen extends StatefulWidget {
+   LoginScreen({super.key});
 
   @override
-  State<SignScreen> createState() => _SignScreenState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _SignScreenState extends State<SignScreen> {
+class _LoginScreenState extends State<LoginScreen> {
 TextEditingController emailController=TextEditingController();
 
 TextEditingController passwordController=TextEditingController();
@@ -22,13 +22,13 @@ TextEditingController passwordController=TextEditingController();
             children: [
               SizedBox(height: 50,),
               Center(
-                child: Text('Sign Up',style: TextStyle(
+                child: Text('Login Now',style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w900,
                     fontSize: 50
                 ),),
               ),
-              Text(' Sign Up To Use Our App',
+              Text('Please Login To Continue Using Our App',
                 style:TextStyle(
                     fontSize: 17,
                     color: Colors.grey
@@ -73,10 +73,10 @@ TextEditingController passwordController=TextEditingController();
                 child: TextFormField(
                   controller: emailController,
                   decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5)
-                    ),
-                    label: Text('Email')
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5)
+                      ),
+                      label: Text('Email')
                   ),
                 ),
               ),
@@ -84,7 +84,7 @@ TextEditingController passwordController=TextEditingController();
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: TextFormField(
-                  controller: passwordController,
+                  controller:passwordController ,
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(5)
@@ -109,10 +109,15 @@ TextEditingController passwordController=TextEditingController();
                       ),
                     ),
                   ),
-                Text('I Agree With Private Policy ',style: TextStyle(color: Colors.black),)],
+                  Text('Remember me ',style: TextStyle(color: Colors.black),),
+                Spacer(),
+                Text('Forgot Password ?',style: TextStyle(color: Colors.black))],
               ),
               ElevatedButton(onPressed: (){
-              }, child: Text('Sign Up',style: TextStyle(color: Colors.white),),style:ElevatedButton.styleFrom(
+                Navigator.push(context,MaterialPageRoute(builder: (context)=>SignScreen()
+                )
+                );
+              }, child: Text('Login',style: TextStyle(color: Colors.white),),style:ElevatedButton.styleFrom(
                   backgroundColor: Colors.blueAccent,
                   fixedSize: Size(300, 50),
                   shape: BeveledRectangleBorder(side: BorderSide(style: BorderStyle.solid,color: Colors.blueAccent)) )
@@ -121,17 +126,18 @@ TextEditingController passwordController=TextEditingController();
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Center(
-                    child: Text('Already Have An Acount?',
+                    child: Text('Dont Have An Acount?',
                         style:TextStyle(
                             fontSize: 17,
                             color: Colors.grey)
                     ),
                   ),
                   SizedBox(width: 10,),
-                  TextButton(onPressed: (){ Navigator.push(context,MaterialPageRoute(builder: (context)=>LoginScreen()
-                  )
-                  );
-                  }, child: Text('Login',
+                  TextButton(onPressed: (){
+                    Navigator.push(context,MaterialPageRoute(builder: (context)=>SignScreen()
+                    )
+                    );
+                  }, child: Text('Sign Up',
                       style:TextStyle(
                           fontSize: 17,
                           color: Colors.blueAccent)
