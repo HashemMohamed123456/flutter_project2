@@ -8,6 +8,7 @@ class  TodoHomeScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children:[Center(
             child: Image.asset('assets/images/2023-10-11.png',fit: BoxFit.cover,),
           ),

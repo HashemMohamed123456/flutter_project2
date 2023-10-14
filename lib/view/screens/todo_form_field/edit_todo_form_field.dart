@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:untitled/view%20model/bloc/todo_cubit/todo_tasks_cubit.dart';
 import 'package:untitled/view%20model/data/utilis/navigator.dart';
 import 'package:untitled/view/screens/todo_tasks_screen/todo_tasks_screen.dart';
-class TodoFormFieldScreen extends StatelessWidget {
-   TodoFormFieldScreen({super.key});
+class EditTodoFormFieldScreen extends StatelessWidget {
+   EditTodoFormFieldScreen({super.key});
+TextEditingController taskController=TextEditingController();
+TextEditingController descriptionController=TextEditingController();
+TextEditingController startDateController=TextEditingController();
+TextEditingController endDateController=TextEditingController();
   @override
   Widget build(BuildContext context) {
-    TodoCubit.get(context).resetController();
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(),
@@ -56,7 +58,6 @@ class TodoFormFieldScreen extends StatelessWidget {
                   child: TextFormField(
                     controller: TodoCubit.get(context).starDateTitleController,
                     keyboardType:TextInputType.none ,
-                    readOnly: true,
                     onTap: (){
                       showDatePicker(
                           context: context,
@@ -65,7 +66,7 @@ class TodoFormFieldScreen extends StatelessWidget {
                           lastDate: DateTime.now().add
                             (Duration(days: 365*5)
                           )
-                      ).then((value){if(value!=null){TodoCubit.get(context).starDateTitleController.text=DateFormat.yMMMd().format(value);}});
+                      ).then((value){if(value!=null){startDateController.text=value.toString();}});
                     },
                     textInputAction: TextInputAction.next,
                     decoration: InputDecoration(
@@ -83,10 +84,9 @@ class TodoFormFieldScreen extends StatelessWidget {
                   child: TextFormField(
                     controller: TodoCubit.get(context).endDateTitleController,
                     keyboardType:TextInputType.none ,
-                    readOnly: true,
                     onTap: (){
                 showDatePicker(context: context, initialDate: DateTime.now(), firstDate: DateTime(2019,5,21), lastDate: DateTime.now().add(Duration(days: 365*5))
-                ).then((value){if(value!=null){TodoCubit.get(context).endDateTitleController.text=DateFormat.yMMMd().format(value);;}});
+                ).then((value){if(value!=null){endDateController.text=value.toString();}});
                 },
                     textInputAction: TextInputAction.done,
                     decoration: InputDecoration(
@@ -100,7 +100,10 @@ class TodoFormFieldScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 20,),
                 ElevatedButton(style: ElevatedButton.styleFrom(backgroundColor: Colors.deepPurple,shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),fixedSize: Size(200,50)),
-                    onPressed: (){if(TodoCubit.get(context).formkey.currentState!.validate()){TodoCubit.get(context).addTodo().then((value) => {Navigator.pop(context)});}}, child: Text('Add Task',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.white),))],
+                    onPressed: (){if(TodoCubit.get(context).formkey.currentState!.validate()){TodoCubit.get(context).editToDo().then((value) => {Navigator.pop(context)});}}, child: Text('Edit Task',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.white),)),
+                SizedBox(height: 10,),
+                ElevatedButton(style: ElevatedButton.styleFrom(backgroundColor: Colors.deepPurple,shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),fixedSize: Size(200,50)),
+                    onPressed: (){if(TodoCubit.get(context).formkey.currentState!.validate()){TodoCubit.get(context).removeTodo().then((value) => {Navigator.pop(context)});}}, child: Text('Delete Task',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.white),))],
             ),
           ),
         ),
